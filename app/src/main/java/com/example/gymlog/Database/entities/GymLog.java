@@ -1,14 +1,15 @@
 package com.example.gymlog.Database.entities;
 
-import androidx.annotation.NonNull;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
+
+import com.example.gymlog.Database.GymLogDatabase;
 
 import java.time.LocalDate;
 import java.util.Objects;
 
 
-@Entity(tableName = "gymLog")
+@Entity(tableName = GymLogDatabase.GYM_LOG_TABLE)
 public class GymLog {
 
     @PrimaryKey(autoGenerate = true)

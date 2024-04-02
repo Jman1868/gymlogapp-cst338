@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
 
     private ActivityMainBinding binding;
 
-    private static final String TAG = "DAC_GYMLOG";
+    public static final String TAG = "DAC_GYMLOG";
     String mExercise = "";
     double mWeight = 0.0;
     int mReps = 0;
