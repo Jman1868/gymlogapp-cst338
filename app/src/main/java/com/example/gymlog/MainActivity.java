@@ -52,6 +52,8 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+        // Initialized the database first before asking to log in
+        repository = GymLogRepository.getRepository(getApplication());
 
         //Login stuff
         loginUser();
@@ -61,8 +63,6 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
         }
 
-
-        repository = GymLogRepository.getRepository(getApplication());
         binding.logDisplayTextView.setMovementMethod(new ScrollingMovementMethod());
         updateDisplay();
         binding.logButton.setOnClickListener(new View.OnClickListener() {
