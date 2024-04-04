@@ -22,11 +22,14 @@ public class GymLog {
     private int reps;
     private LocalDateTime date;
 
+    private int userId;
 
-    public GymLog(String exercise, double weight, int reps) {
+
+    public GymLog(String exercise, double weight, int reps, int userId) {
         this.exercise = exercise;
         this.weight = weight;
         this.reps = reps;
+        this.userId = userId;
         date = LocalDateTime.now();
     }
 
@@ -45,12 +48,12 @@ public class GymLog {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         GymLog gymLog = (GymLog) o;
-        return id == gymLog.id && Double.compare(gymLog.weight, weight) == 0 && reps == gymLog.reps && Objects.equals(exercise, gymLog.exercise) && Objects.equals(date, gymLog.date);
+        return id == gymLog.id && Double.compare(gymLog.weight, weight) == 0 && reps == gymLog.reps && userId == gymLog.userId && Objects.equals(exercise, gymLog.exercise) && Objects.equals(date, gymLog.date);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, exercise, weight, reps, date);
+        return Objects.hash(id, exercise, weight, reps, date, userId);
     }
 
     public int getId() {
@@ -91,5 +94,13 @@ public class GymLog {
 
     public void setDate(LocalDateTime date) {
         this.date = date;
+    }
+
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
 }
