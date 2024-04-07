@@ -95,13 +95,18 @@ public class GymLogRepository {
 
     }
 
+    public LiveData<List<GymLog>> getAllLogsByUserIdLiveData(int loggedInUserId){
+        return gymLogDAO.getRecordsetUserIdLiveData(loggedInUserId);
+    }
+
+    @Deprecated
     public ArrayList<GymLog> getAllLogsByUserId(int loggedInUserId) {
         //Basically a Javascript promise
         Future<ArrayList<GymLog>> future = GymLogDatabase.databaseWriteExecutor.submit(
                 new Callable<ArrayList<GymLog>>() {
                     @Override
                     public ArrayList<GymLog> call() throws Exception {
-                        return (ArrayList<GymLog>) gymLogDAO.getRecordsbyUserId(loggedInUserId);
+                        return (ArrayList<GymLog>) gymLogDAO.getRecordsetUserId(loggedInUserId);
                     }
                 }
         );
